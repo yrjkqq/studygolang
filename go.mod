@@ -57,6 +57,7 @@ require (
 	golang.org/x/net v0.0.0-20190607181551-461777fb6f67
 	golang.org/x/oauth2 v0.0.0-20190226205417-e64efc72b421
 	golang.org/x/text v0.3.2
+	gopkg.in/stretchr/testify.v1 v1.2.2 // indirect
 	gopkg.in/validator.v2 v2.0.0-20180514200540-135c24b11c19 // indirect
 	xorm.io/core v0.7.2
 	xorm.io/xorm v0.8.0
