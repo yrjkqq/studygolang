@@ -12,7 +12,7 @@ build:
 
 	gofmt -w -s .
 
-	go build -ldflags "-X global.Build=$(BUILD)" -o bin/studygolang github.com/studygolang/studygolang/app
+	go build -ldflags "-X github.com/studygolang/studygolang/global.Build=$(BUILD)" -o bin/studygolang github.com/studygolang/studygolang/app
 
 	@echo "build successfully!"
 

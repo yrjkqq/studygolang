@@ -14,9 +14,9 @@
       // "program":"${fileDirname}",
       "env": {},
       // "args": ["-version"],
-      "args": [],
+      // "args": [],
       "showLog": true,
-      "buildFlags": "-ldflags='-X global.Build=$master-fork',-o='bin/studygolang'"
+      "buildFlags": "-ldflags='-X github.com/studygolang/studygolang/global.Build=master'"
     },
   ]
 }
