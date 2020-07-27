@@ -40,6 +40,7 @@ func init() {
 
 func main() {
 	if len(os.Args) >= 2 {
+		// 命令行传入的参数, 第一个参数为可执行文件的全路径名称, 其后参数通过 os.Args[] 获取
 		switch os.Args[1] {
 		case "indexer":
 			cmd.Indexer()
@@ -51,16 +52,23 @@ func main() {
 	}
 
 	// 支持根据参数打印版本信息
+	// 启动传入 -version 参数打印出版本号后程序退出
 	global.PrintVersion(os.Stdout)
 
+	// 写入 pid 参数到 pid/*.pid 文件中, 用于 make stop 杀掉程序进程
 	savePid()
 
+	// 从配置文件中读取 domain 参数, 传入默认值
 	global.App.Init(logic.WebsiteSetting.Domain)
 
+	// READ: ROOT 代表项目根目录
+	// 创建 log 文件夹, 并设置相关文件日志文件名
 	logger.Init(ROOT+"/log", ConfigFile.MustValue("global", "log_level", "DEBUG"))
 
+	// 中文分词加载用户词典和通用词典, 用户词典优先
 	go keyword.Extractor.Init(keyword.DefaultProps, true, ROOT+"/data/programming.txt,"+ROOT+"/data/dictionary.txt")
 
+	// redis 中清空删除在线用户
 	go logic.Book.ClearRedisUser()
 
 	go ServeBackGround()

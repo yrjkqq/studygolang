@@ -73,6 +73,7 @@ type app struct {
 
 var App = &app{}
 
+// 获取命令行传入的参数, ./bin/studygolang -version 启动即可
 var showVersion = flag.Bool("version", false, "Print version of this binary")
 
 const (
@@ -84,6 +85,7 @@ const (
 func init() {
 	App.Name = os.Args[0]
 	App.Version = "V4.0.0"
+	// 启动时传入 -ldflags='-X github.com/studygolang/studygolang/global.Build=master' 参数即可为 global 包中的 Build 变量赋值
 	App.Build = Build
 	App.LaunchTime = time.Now()
 
@@ -135,6 +137,7 @@ func (this *app) CanonicalCDN(isHTTPS bool) string {
 
 func PrintVersion(w io.Writer) {
 	if !flag.Parsed() {
+		// READ: 必须 parse 之后才可以通过 flag 获取参数
 		flag.Parse()
 	}
 
