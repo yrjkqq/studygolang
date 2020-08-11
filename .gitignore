@@ -49,3 +49,4 @@ welcome.png
 /env.ini
 ssl
 bin
+app/__debug_bin
