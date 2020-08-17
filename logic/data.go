@@ -48,6 +48,7 @@ var (
 
 // 将所有 权限 加载到内存中；后台修改权限时，重新加载一次
 func LoadAuthorities() error {
+	// READ
 	authorities := make([]*model.Authority, 0)
 	err := MasterDB.Find(&authorities)
 	if err != nil {

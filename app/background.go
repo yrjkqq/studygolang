@@ -60,7 +60,7 @@ func ServeBackGround() {
 			// 每天生成 sitemap 文件
 			c.AddFunc("@daily", logic.GenSitemap)
 
-			// 给用户发邮件，如通知网站最近的动态，每周的晨读汇总等
+			// 给用户发邮件，如通知网站最近的动态，每周的晨读汇总等 == @daily
 			c.AddFunc("0 0 0 * * *", logic.DefaultEmail.EmailNotice)
 
 			// webhook 方式增量，每天补漏

@@ -336,6 +336,7 @@ func (this *book) newUser2Redis(user int) {
 	redisClient := nosql.NewRedisClient()
 	defer redisClient.Close()
 
+	// HSET https://redis.io/commands/hset Sets field in the hash stored at key to value.
 	redisClient.HSET(statOnlineKey, strconv.Itoa(user), "")
 }
 
