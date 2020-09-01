@@ -159,7 +159,7 @@ func (self AutoCrawlLogic) parseArticleList(strUrl string, autoCrawlConf *model.
 
 	listSelector := autoCrawlConf.ListSelector
 	resultSelector := autoCrawlConf.ResultSelector
-
+	// BOOKMARK
 	u, err := url.Parse(autoCrawlConf.IncrUrl)
 	if err != nil {
 		logger.Errorln("parse incr_url error:", err)

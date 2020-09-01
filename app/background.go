@@ -38,6 +38,7 @@ func ServeBackGround() {
 	logic.DefaultUploader.InitQiniu()
 
 	if *embedIndexing {
+		// BOOKMARK solr 索引
 		cmd.IndexingServer()
 	}
 	if *embedCrawler {
