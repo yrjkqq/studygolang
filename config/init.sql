@@ -77,3 +77,5 @@ VALUES
 	(1, '初始资本', 2, 2000, 0, 0, 0, 0, '2017-06-03 22:44:59'),
 	(2, '每日登录任务', 1, 0, 25, 50, 5, 0, '2017-06-05 13:35:16');
 
+
+INSERT INTO `auto_crawl_rule` (`website`, `all_url`, `incr_url`, `max_page`, `list_selector`, `result_selector`, `page_field`)  VALUES ("yinwang", "http://www.yinwang.org/", "http://www.yinwang.org/", 10, ".list-group .list-group-item", "a", "none" )
